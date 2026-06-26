@@ -34,7 +34,7 @@ export default function Equipamentos() {
   return (
     <div>
       <h2>Gestão de Equipamentos</h2>
-      <div style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}>
+      <div className="card">
         <h3>Novo Equipamento</h3>
         <input 
           type="text" 
@@ -50,7 +50,7 @@ export default function Equipamentos() {
           onChange={(e) => setSetor(e.target.value)} 
           style={{ marginRight: '10px' }} 
         />
-        <button onClick={cadastrar}>Cadastrar</button>
+        <button className="cadastrar" onClick={cadastrar}>Cadastrar</button>
       </div>
 
       <h3>Equipamentos Cadastrados</h3>

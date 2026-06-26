@@ -33,22 +33,77 @@ export default function Servicos() {
     }
   };
 
-  return (
-    <div>
+return (
+  <div className="app">
+
+    <div className="container">
+
       <h2>Gestão de Serviços</h2>
-      <div style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}>
+
+
+      <div className="card">
+
         <h3>Novo Serviço</h3>
-        <input type="text" placeholder="Nome do Serviço" value={nome} onChange={(e) => setNome(e.target.value)} style={{ marginRight: '10px', marginBottom: '5px' }} />
-        <input type="text" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)} style={{ marginRight: '10px', marginBottom: '5px' }} />
-        <input type="text" placeholder="Valor Estimado" value={valor} onChange={(e) => setValor(e.target.value)} style={{ marginRight: '10px', marginBottom: '5px' }} />
-        <button onClick={cadastrar}>Cadastrar</button>
+
+
+        <input 
+          type="text" 
+          placeholder="Nome do Serviço" 
+          value={nome} 
+          onChange={(e) => setNome(e.target.value)} 
+        />
+
+
+        <input 
+          type="text" 
+          placeholder="Descrição" 
+          value={descricao} 
+          onChange={(e) => setDescricao(e.target.value)} 
+        />
+
+
+        <input 
+          type="text" 
+          placeholder="Valor Estimado" 
+          value={valor} 
+          onChange={(e) => setValor(e.target.value)} 
+        />
+
+
+        <button 
+          className="cadastrar" 
+          onClick={cadastrar}
+        >
+          Cadastrar
+        </button>
+
+
       </div>
+
+
+
       <h3>Serviços Cadastrados</h3>
+
+
       <ul>
+
         {servicos.map(serv => (
-          <li key={serv.id}><strong>{serv.nome}</strong>: {serv.descricao} - R$ {serv.valor}</li>
+
+          <li key={serv.id}>
+
+            <strong>{serv.nome}</strong>:
+            {serv.descricao} -
+            R$ {serv.valor}
+
+          </li>
+
         ))}
+
       </ul>
+
+
     </div>
-  );
+
+  </div>
+);
 }

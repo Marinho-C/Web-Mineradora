@@ -29,20 +29,78 @@ export default function Cidades() {
     }
   };
 
-  return (
-    <div>
+ return (
+
+  <div className="app">
+
+    <div className="container">
+
+
       <h2>Gestão de Cidades</h2>
-      <div style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}>
+
+
+
+      <div className="card">
+
+
         <h3>Nova Cidade</h3>
-        <input type="text" placeholder="Nome da Cidade" value={nome} onChange={(e) => setNome(e.target.value)} style={{ marginRight: '10px' }} />
-        <button onClick={cadastrar}>Cadastrar</button>
+
+
+        <input
+
+          type="text"
+
+          placeholder="Nome da Cidade"
+
+          value={nome}
+
+          onChange={(e) => setNome(e.target.value)}
+
+        />
+
+
+        <button 
+          className="cadastrar" 
+          onClick={cadastrar}
+        >
+
+          Cadastrar
+
+        </button>
+
+
       </div>
+
+
+
+
       <h3>Cidades Cadastradas</h3>
+
+
       <ul>
+
+
         {cidades.map(cid => (
-          <li key={cid.id}><strong>{cid.nome}</strong></li>
+
+          <li key={cid.id}>
+
+            <strong>{cid.nome}</strong>
+
+
+          </li>
+
         ))}
+
+
       </ul>
+
+
+
     </div>
-  );
+
+
+  </div>
+
+
+);
 }

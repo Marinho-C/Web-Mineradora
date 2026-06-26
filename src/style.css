@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: #fff7fb;
+  color: #3b3040;
+}
+
+
+.app {
+  min-height: 100vh;
+  padding: 30px;
+}
+
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+.menu {
+  background: #ffd6e8;
+  padding: 18px;
+  border-radius: 20px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.023);
+}
+
+
+.menu button {
+
+  border: none;
+  background: white;
+  color: #d45d8c;
+
+  padding: 12px 22px;
+
+  border-radius: 30px;
+
+  font-size: 15px;
+
+  cursor:pointer;
+
+  transition: .3s;
+
+}
+
+
+.menu button:hover {
+
+  background:#ff8fba;
+  color:white;
+
+}
+
+
+
+/* TITULOS */
+
+h1 {
+
+font-size:45px;
+color:#c94f82;
+
+}
+
+
+h2 {
+
+color:#d45d8c;
+
+}
+
+
+h3 {
+
+color:#9d4770;
+
+}
+
+
+
+/* CAIXAS */
+
+.card {
+
+background:white;
+
+border-radius:25px;
+
+padding:25px;
+
+margin-top:25px;
+
+box-shadow:0 10px 25px #0001;
+
+}
+
+
+
+/* INPUTS */
+
+input {
+
+
+padding:12px;
+
+border-radius:15px;
+
+border:2px solid #ffd1e5;
+
+margin-right:10px;
+
+outline:none;
+
+}
+
+
+input:focus {
+
+border-color:#ff8fba;
+
+}
+
+
+
+/* BOTÃO */
+
+button {
+
+cursor:pointer;
+
+}
+
+
+.cadastrar {
+
+background:#ff8fba;
+
+color:white;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:25px;
+
+font-weight:bold;
+
+}
+
+
+
+/* LISTA */
+
+li {
+
+background:#fff0f6;
+
+margin:10px 0;
+
+padding:12px;
+
+border-radius:15px;
+
+list-style:none;
+
+}
