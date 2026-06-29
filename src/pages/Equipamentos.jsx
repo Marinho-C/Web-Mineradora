@@ -1,64 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { equipamentoService } from '../services/api';
 
 export default function Equipamentos() {
   const [equipamentos, setEquipamentos] = useState([]);
   const [nome, setNome] = useState('');
   const [setor, setSetor] = useState('');
 
+  // Carrega dados falsos ao abrir a página
   useEffect(() => {
-    carregarEquipamentos();
+    setEquipamentos([
+      { id: 1, nome: 'Escavadeira', setor: 'Extração' },
+      { id: 2, nome: 'Caminhão', setor: 'Transporte' },
+      { id: 3, nome: 'Perfuratriz', setor: 'Perfuração' },
+    ]);
   }, []);
 
-  const carregarEquipamentos = async () => {
-    try {
-      const response = await equipamentoService.listar();
-      setEquipamentos(response.data);
-    } catch (error) {
-      console.error("Erro ao buscar equipamentos", error);
-    }
-  };
-
-  const cadastrar = async () => {
+  const cadastrar = () => {
     if (!nome || !setor) return alert("Preencha todos os campos!");
-    try {
-      await equipamentoService.criar({ nome, setor });
-      setNome('');
-      setSetor('');
-      carregarEquipamentos(); // Atualiza a lista após cadastrar
-    } catch (error) {
-      console.error("Erro ao cadastrar", error);
-    }
+    
+    const novoEquip = {
+      id: Date.now(),
+      nome: nome,
+      setor: setor
+    };
+    
+    setEquipamentos([...equipamentos, novoEquip]);
+    setNome('');
+    setSetor('');
+    alert("Equipamento cadastrado com sucesso!");
   };
 
   return (
-    <div>
-      <h2>Gestão de Equipamentos</h2>
-      <div className="card">
-        <h3>Novo Equipamento</h3>
-        <input 
-          type="text" 
-          placeholder="Nome do Equipamento" 
-          value={nome}
-          onChange={(e) => setNome(e.target.value)} 
-          style={{ marginRight: '10px' }} 
-        />
-        <input 
-          type="text" 
-          placeholder="Setor (Ex: Extração)" 
-          value={setor}
-          onChange={(e) => setSetor(e.target.value)} 
-          style={{ marginRight: '10px' }} 
-        />
-        <button className="cadastrar" onClick={cadastrar}>Cadastrar</button>
+    <div className="app">
+      <div className="container">
+        <h2>Gestão de Equipamentos</h2>
+        <div className="card">
+          <h3>Novo Equipamento</h3>
+          <input 
+            type="text" 
+            placeholder="Nome do Equipamento" 
+            value={nome}
+            onChange={(e) => setNome(e.target.value)} 
+          />
+          <input 
+            type="text" 
+            placeholder="Setor (Ex: Extração)" 
+            value={setor}
+            onChange={(e) => setSetor(e.target.value)} 
+          />
+          <button className="cadastrar" onClick={cadastrar}>Cadastrar</button>
+        </div>
+        <h3>Equipamentos Cadastrados</h3>
+        <ul>
+          {equipamentos.map(eq => (
+            <li key={eq.id}><strong>{eq.nome}</strong> - Setor: {eq.setor}</li>
+          ))}
+        </ul>
       </div>
-
-      <h3>Equipamentos Cadastrados</h3>
-      <ul>
-        {equipamentos.map(eq => (
-          <li key={eq.id}><strong>{eq.nome}</strong> - Setor: {eq.setor}</li>
-        ))}
-      </ul>
     </div>
   );
 }

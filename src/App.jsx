@@ -9,29 +9,18 @@ import Servicos from './pages/Servicos';
 function App() {
   const [pagina, setPagina] = useState('inicio');
 
-return (
-
-<div className="app">
-
-<div className="container">
-
-<Menu setPagina={setPagina} />
-
-
-
-
-{pagina === 'inicio' && <Inicio />}
-{pagina === 'equipamentos' && <Equipamentos />}
-{pagina === 'cidades' && <Cidades />}
-{pagina === 'funcionarios' && <Funcionarios />}
-{pagina === 'servicos' && <Servicos />}
-
-
-</div>
-
-</div>
-
-)
+  return (
+    <div className="app">
+      <div className="container">
+        <Menu setPagina={setPagina} />
+        {pagina === 'inicio' && <Inicio />}
+        {pagina === 'equipamentos' && <Equipamentos />}
+        {pagina === 'cidades' && <Cidades />}
+        {pagina === 'funcionarios' && <Funcionarios />}
+        {pagina === 'servicos' && <Servicos />}
+      </div>
+    </div>
+  );
 }
 
 export default App;
